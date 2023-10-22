@@ -1,9 +1,10 @@
 import unittest
-from lab3 import BinaryTree
-from lab3 import branch_sums
+from lab3.lab3 import BinaryTree
+from lab3.lab3 import branch_sums
 
 
 class TestFindLeftChild(unittest.TestCase):
+
 
     def test_LeftChild(self):
         root = BinaryTree(3)
@@ -15,6 +16,7 @@ class TestFindLeftChild(unittest.TestCase):
         result = branch_sums(root)
         self.assertEqual(result, 24)
 
+
     def test_LeftChild1(self):
         root = BinaryTree(3)
         root.left = BinaryTree(9)
@@ -22,6 +24,19 @@ class TestFindLeftChild(unittest.TestCase):
         root.right = BinaryTree(20)
         root.right.left = BinaryTree(15)
         root.right.right = BinaryTree(7)
+
+        result = branch_sums(root)
+        self.assertEqual(result, 30)
+
+
+    def test_LeftChild2(self):
+        root = BinaryTree(3)
+        root.left = BinaryTree(9)
+        root.left.left = BinaryTree(15)
+        root.right = BinaryTree(20)
+        root.right.left = BinaryTree(15)
+        root.right.right = BinaryTree(7)
+        root.right.right = BinaryTree(5)
 
         result = branch_sums(root)
         self.assertEqual(result, 30)

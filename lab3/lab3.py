@@ -1,4 +1,13 @@
+"""
+lab-3
+"""
+# pylint: disable=too-few-public-methods
+
+
 class BinaryTree:
+    """
+    We create a class for filling the binary tree
+    """
     def __init__(self, value):
         self.value = value
         self.left = None
@@ -6,9 +15,21 @@ class BinaryTree:
 
 
 def branch_sums(root):
+    """
+    def search and withdrawal of the amount
+    :param root: position in BinaryTree
+    :return: sum
+    """
     sums = []
 
     def calculate_branch_sums(node, current_sum, is_left):
+        """
+        run along the tree looking for node.left
+        :param node:
+        :param current_sum:
+        :param is_left:
+        :return:
+        """
         if node is None:
             return
 
@@ -20,4 +41,3 @@ def branch_sums(root):
 
     calculate_branch_sums(root, 0, False)
     return sum(sums)
-
